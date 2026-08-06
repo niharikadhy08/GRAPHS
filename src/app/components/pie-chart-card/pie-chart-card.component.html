@@ -1,0 +1,25 @@
+<article class="chart-card">
+  <header class="chart-card__header">
+    <div>
+      <p>Pie chart</p>
+      <h2>{{ title() }}</h2>
+    </div>
+  </header>
+
+  @if (chartOptions(); as options) {
+    <apx-chart
+      [series]="options.series"
+      [chart]="options.chart"
+      [colors]="options.colors"
+      [dataLabels]="options.dataLabels"
+      [fill]="options.fill"
+      [labels]="options.labels"
+      [legend]="options.legend"
+      [plotOptions]="options.plotOptions"
+      [responsive]="options.responsive"
+      [states]="options.states"
+      [stroke]="options.stroke"
+      [tooltip]="options.tooltip"
+    />
+  }
+</article>

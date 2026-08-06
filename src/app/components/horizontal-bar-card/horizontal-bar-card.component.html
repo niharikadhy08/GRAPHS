@@ -1,0 +1,23 @@
+<article class="chart-card">
+  <header class="chart-card__header">
+    <div>
+      <p>Horizontal bar</p>
+      <h2>{{ title() }}</h2>
+    </div>
+  </header>
+
+  @if (chartOptions(); as options) {
+    <apx-chart
+      [series]="options.series"
+      [chart]="options.chart"
+      [colors]="options.colors"
+      [dataLabels]="options.dataLabels"
+      [grid]="options.grid"
+      [plotOptions]="options.plotOptions"
+      [responsive]="options.responsive"
+      [tooltip]="options.tooltip"
+      [xaxis]="options.xaxis"
+      [yaxis]="options.yaxis"
+    />
+  }
+</article>

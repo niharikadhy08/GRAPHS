@@ -1,0 +1,20 @@
+<div class="detail-table-wrap">
+  <table class="detail-table">
+    <thead>
+      <tr>
+        @for (column of columns(); track column.key) {
+          <th scope="col" [class.text-end]="column.align === 'end'">{{ column.label }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (row of rows(); track $index) {
+        <tr>
+          @for (column of columns(); track column.key) {
+            <td [class.text-end]="column.align === 'end'">{{ cell(row, column.key) }}</td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,32 @@
+@if (detail(); as selected) {
+  <div class="modal-backdrop" (click)="closeFromBackdrop($event)">
+    <section
+      class="detail-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="detail-modal-title"
+      tabindex="-1"
+    >
+      <button class="modal-close" type="button" aria-label="Close detail table" (click)="closed.emit()">
+        <span aria-hidden="true">X</span>
+      </button>
+
+      <header class="detail-modal__header">
+        <p>{{ selected.eyebrow }}</p>
+        <h2 id="detail-modal-title">{{ selected.title }}</h2>
+        <span>{{ selected.description }}</span>
+      </header>
+
+      <div class="metric-grid" aria-label="Selected metrics">
+        @for (metric of selected.metrics; track metric.label) {
+          <article class="metric-card">
+            <span>{{ metric.label }}</span>
+            <strong>{{ metric.value }}</strong>
+          </article>
+        }
+      </div>
+
+      <app-detail-table [columns]="selected.columns" [rows]="selected.rows" />
+    </section>
+  </div>
+}

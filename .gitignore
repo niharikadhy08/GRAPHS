@@ -1,0 +1,17 @@
+# Angular
+/.angular
+/.npm-cache
+/dist
+/out-tsc
+
+# Dependencies
+/node_modules
+
+# IDEs
+/.idea
+/.vscode
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

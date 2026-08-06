@@ -1,0 +1,53 @@
+<main class="dashboard-shell">
+  <section class="dashboard-header" aria-labelledby="dashboard-title">
+    <div>
+      <p class="eyebrow">Live operations</p>
+      <h1 id="dashboard-title">Real-Time Analytics Dashboard</h1>
+    </div>
+  </section>
+
+  @if (dashboardData$ | async; as dashboard) {
+    @if (dashboard.rows[0]; as row) {
+      <section class="dashboard-grid" aria-label="Analytics charts">
+        <app-horizontal-bar-card
+          class="chart-grid-item"
+          [data]="row.barChart"
+          [title]="row.barChart.title"
+          (barSelected)="showBarDetail($event)"
+        />
+
+        <app-doughnut-card
+          class="chart-grid-item"
+          [data]="row.doughnutChart"
+          [title]="row.doughnutChart.title"
+          (segmentSelected)="showDoughnutDetail($event)"
+        />
+
+        <app-stacked-bar-card
+          class="chart-grid-item chart-grid-item--wide"
+          [data]="row.stackedBarChart"
+          [title]="row.stackedBarChart.title"
+          (barSelected)="showStackedDetail($event)"
+        />
+
+        <app-india-map-card
+          class="chart-grid-item chart-grid-item--wide"
+          [data]="row.cityMap"
+          [title]="row.cityMap.title"
+          (citySelected)="showCityDetail($event)"
+        />
+
+        <app-pie-chart-card
+          class="chart-grid-item chart-grid-item--wide"
+          [data]="row.pieChart"
+          [title]="row.pieChart.title"
+          (sliceSelected)="showPieDetail($event)"
+        />
+      </section>
+    }
+  }
+</main>
+
+@if (selectedDetail; as detail) {
+  <app-detail-modal [detail]="detail" (closed)="clearDetail()" />
+}

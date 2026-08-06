@@ -1,0 +1,26 @@
+<article class="chart-card">
+  <header class="chart-card__header">
+    <div>
+      <p>Stacked vertical bar</p>
+      <h2>{{ title() }}</h2>
+    </div>
+  </header>
+
+  @if (chartOptions(); as options) {
+    <apx-chart
+      [series]="options.series"
+      [chart]="options.chart"
+      [colors]="options.colors"
+      [dataLabels]="options.dataLabels"
+      [fill]="options.fill"
+      [grid]="options.grid"
+      [legend]="options.legend"
+      [plotOptions]="options.plotOptions"
+      [responsive]="options.responsive"
+      [stroke]="options.stroke"
+      [tooltip]="options.tooltip"
+      [xaxis]="options.xaxis"
+      [yaxis]="options.yaxis"
+    />
+  }
+</article>

@@ -1,0 +1,110 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.chart-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 620px;
+  padding: 30px;
+  border: 1px solid rgba(217, 226, 236, 0.82);
+  border-radius: 16px;
+  background: var(--app-surface);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(47, 128, 237, 0.28);
+  box-shadow: 0 18px 42px rgba(29, 45, 68, 0.16);
+}
+
+.chart-card__header {
+  margin-bottom: 22px;
+}
+
+.chart-card__header p {
+  margin: 0 0 8px;
+  color: var(--app-muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.chart-card__header h2 {
+  margin: 0;
+  color: var(--app-text);
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+apx-chart {
+  display: block;
+  flex: 1;
+  min-width: 0;
+}
+
+:host ::ng-deep .apexcharts-canvas,
+:host ::ng-deep .apexcharts-svg {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+:host ::ng-deep .apexcharts-datalabel {
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(15, 23, 42, 0.38);
+}
+
+:host ::ng-deep .custom-chart-tooltip {
+  display: grid;
+  gap: 8px;
+  max-width: 260px;
+  padding: 12px;
+  border: 1px solid var(--app-border);
+  border-radius: 8px;
+  color: var(--app-text);
+  background: var(--app-surface);
+  box-shadow: 0 14px 34px rgba(29, 45, 68, 0.18);
+}
+
+:host ::ng-deep .custom-chart-tooltip div {
+  display: grid;
+  gap: 2px;
+}
+
+:host ::ng-deep .custom-chart-tooltip span {
+  color: var(--app-muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+:host ::ng-deep .custom-chart-tooltip strong {
+  color: var(--app-text);
+  font-size: 0.95rem;
+}
+
+:host ::ng-deep .custom-chart-tooltip p {
+  margin: 0;
+  color: var(--app-text);
+  font-size: 0.86rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 640px) {
+  .chart-card {
+    min-height: 520px;
+    padding: 20px;
+  }
+
+  .chart-card__header {
+    margin-bottom: 14px;
+  }
+}
